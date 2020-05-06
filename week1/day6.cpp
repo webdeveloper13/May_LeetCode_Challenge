@@ -58,3 +58,36 @@ public:
 
     }
 };
+
+
+//solution 3 : moore votings algo
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        unordered_map<int,int> um1;
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);    
+        int ans;    
+        int cand = nums[0];
+        int count = 1;
+        for(int i=1;i<nums.size();i++)
+        {
+                int n = nums[i];
+                if(n==cand)
+                        count++;
+                else
+                        count--;
+                
+                if(count==0)
+                {
+                        cand = nums[i];
+                        count = 1;
+                        
+                }
+        }
+            
+            return cand;
+    }
+};
